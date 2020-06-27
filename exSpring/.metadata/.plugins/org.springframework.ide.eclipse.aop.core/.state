@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="exGuestSearchPage"/>
+<aop-project name="exGuestPage"/>
+<aop-project name="exPds"/>
+<aop-project name="exGuest"/>
+<aop-project name="exGuestSearch"/>
+<aop-project name="Exam_04"/>
+<aop-project name="copy"/>
+<aop-project name="exMember"/>
+<aop-project name="exBoard"/>
+</aop-reference-model>

@@ -1,0 +1,21 @@
+package com.jslhrd.dbtest;
+
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context")
+@Log4j
+public class DataSourceTest {
+	@Setter(onMethod_= @Autowired)
+	private DataSource dataSource;
+	
+	@Test
+	public void TextConn() {
+		try {
+			Connection con = dataSource.getConnection();
+			log.info(con);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+}

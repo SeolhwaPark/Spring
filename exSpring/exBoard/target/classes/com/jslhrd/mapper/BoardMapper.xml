@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jslhrd.mapper.BoardMapper">
+
+	<!-- 게시물카운트 -->
+	<select id="boardcount" resultType="int">
+		select count(*) from
+		tbl_board
+	</select>
+
+	<!-- 검색조건 게시물카운트 -->
+	<select id="boardsearchcount" resultType="int">
+		select count(*) from tbl_board where
+		<choose>
+			<when test="search=='name'">
+				name like '%' || #{key} || '%'
+			</when>
+			<when test="search=='subject'">
+				subject like '%' || #{key} || '%'
+			</when>
+			<when test="search=='contents'">
+				contents like '%' || #{key} || '%'
+			</when>
+		</choose>
+	</select>
+
+	<!-- 전체 목록 -->
+	<select id="boardlist" resultType="com.jslhrd.domain.BoardVO">
+		<![CDATA[
+			select X.* from (select rownum as rnum, A.* from (
+				select * from tbl_board order by idx desc) A
+					where rownum <= #{endpage} ) X where X.rnum >= #{startpage}
+		]]>
+	</select>
+
+	<!-- 게시물 조건에 맞는 전체 목록 검색 페이지처리 -->
+	<select id="boardsearchlist"
+		resultType="com.jslhrd.domain.BoardVO">
+		select X.* from(select rownum as rnum, A.* from(
+		select * from tbl_board order by idx desc) A where
+		<choose>
+			<when test="search=='name'">
+				name like '%' || #{key} || '%'
+			</when>
+		</choose>
+		<choose>
+			<when test="search=='subject'">
+				subject like '%' || #{key} || '%'
+			</when>
+		</choose>
+		<choose>
+			<when test="search=='contents'">
+				contents like '%' || #{key} || '%'
+			</when>
+		</choose>
+		<trim prefix="AND">
+			<![CDATA[
+				rownum <= #{endpage}) X where 
+			]]>
+		</trim>
+		<choose>
+			<when test="search=='name'">
+				name like '%' || #{key} || '%'
+			</when>
+		</choose>
+		<choose>
+			<when test="search=='subject'">
+				subject like '%' || #{key} || '%'
+			</when>
+		</choose>
+		<choose>
+			<when test="search=='contents'">
+				contents like '%' || #{key} || '%'
+			</when>
+		</choose>
+		<trim prefix="AND">
+			<![CDATA[
+				rnum >= #{startpage} 
+			]]>
+		</trim>
+	</select>
+
+	<!-- 뷰 -->
+	<select id="boardselect" resultType="com.jslhrd.domain.BoardVO">
+		select * from tbl_board
+		where idx=#{idx}
+	</select>
+
+	<!-- 조회수 -->
+	<update id="boardhits">
+		update tbl_board set readcnt=readcnt+1 where
+		idx=#{idx}
+	</update>
+
+
+	<!-- 등록 -->
+	<insert id="boardwrite">
+		insert into tbl_board(idx, name, email, subject,
+		contents, pass) values(tbl_board_seq_idx.nextval, #{name}, #{email},
+		#{subject}, #{contents}, #{pass})
+	</insert>
+
+	<!-- 수정 -->
+	<update id="boardmodify">
+		update tbl_board set
+		subject=#{subject},contents=#{contents},email=#{email} where
+		idx=#{idx}
+		<trim prefix="AND">
+			pass=#{pass}
+		</trim>
+	</update>
+
+	<!-- 삭제 -->
+	<delete id="boarddelete">
+		delete from tbl_board where idx= #{idx}
+		<trim prefix="AND">
+			pass= #{pass}
+		</trim>
+	</delete>
+
+
+</mapper>

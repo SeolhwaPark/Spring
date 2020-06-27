@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jslhrd.mapper.MemberMapper">
+
+	<!-- 목록 -->
+	<select id="memList" resultType="com.jslhrd.domain.MemberVO">
+		<![CDATA[
+			select X.* from (select rownum as rnum, A.* from (
+				select * from tbl_member order by idx desc) A
+					where rownum <= #{endpage} ) X where X.rnum >= #{startpage}
+		]]>
+		
+		<!--  select * from tbl_member order
+		by first_time desc-->
+	</select>
+
+	<!-- 게시물 조건에 맞는 전체 목록 검색 페이지 처리 -->
+	<select id="memListSearch" resultType="com.jslhrd.domain.MemberVO">
+			select X.* from (select rownum as rnum, A.* from (
+			select * from tbl_member order by idx desc) A  where 
+			<choose>
+				<when test="search=='tel'">
+					name like '%' || #{key} || '%'
+				</when>
+				<when test="search=='addr1'">
+					subject like '%' || #{key} || '%'
+				</when>
+				
+			</choose>
+			<trim prefix="AND">
+				<![CDATA[
+					rownum <= #{endpage}) X where
+				]]>
+			</trim>	
+			<choose>
+				<when test="search=='tel'">
+					name like '%' || #{key} || '%'
+				</when>
+				<when test="search=='addr1'">
+					subject like '%' || #{key} || '%'
+				</when>
+			
+			</choose>
+			<trim prefix="AND">
+				<![CDATA[
+					X.rnum >= #{startpage}
+				]]>
+			</trim>	
+			
+	</select>
+
+	<!-- 등록 -->
+	<insert id="memInsert">
+		insert into tbl_member(IDX, NAME, USERID, PASSWD, GUBUN, ZIPCODE, ADDR1, ADDR2, TEL, EMAIL, JOB, INTRO, FAVORITE)
+		values(tbl_member_seq_idx.nextval,#{name},#{userid},#{passwd},#{gubun},#{zipcode},#{addr1},#{addr2},#{tel},#{email},#{job},#{intro},#{favorite})
+	</insert>
+
+	<!-- id만 검색해서 그 id가 존재하면 비번을 리턴 -->
+	<select id="userIdSearch" resultType="String">
+		select passwd from
+		tbl_member where userid=#{userid}
+	</select>
+
+	<!-- 로그인 정보 (사용자정보 리턴) 세션정보 활용 -->
+	<select id="userLogin" resultType="com.jslhrd.domain.MemberVO">
+		select * from tbl_member where
+		userid=#{userid}
+	</select>
+
+	<!-- 로그인에 성공 시 마지막 날짜 업데이트 -->
+	<update id="lastTimeUpdate">
+		update tbl_member set last_time=sysdate where
+		userid=#{userid}
+	</update>
+
+	<!-- 수정 -->
+	<update id="memModify">
+		update tbl_member set tel=#{tel} where userid=#{userid}
+		<trim prefix="AND">
+			passwd=#{passwd}
+		</trim>
+	</update>
+	
+
+
+</mapper>

@@ -1,0 +1,17 @@
+package com.jslhrd.service;
+
+import java.util.List;
+
+import com.jslhrd.domain.PdsVO;
+
+public interface PdsService {
+	// 전체 카운트
+	public int pdsCount();
+
+	// 전체목록
+	public List<PdsVO> pdsList();
+
+	// 등록처리
+	public void pdsWrite(PdsVO vo);
+
+}

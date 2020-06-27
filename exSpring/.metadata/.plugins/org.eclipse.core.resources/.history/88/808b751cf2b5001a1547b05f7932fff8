@@ -1,0 +1,43 @@
+package com.jslhrd.service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.jslhrd.domain.PdsVO;
+import com.jslhrd.mapper.PdsMapper;
+
+import lombok.AllArgsConstructor;
+
+@Service
+@AllArgsConstructor
+public class PdsServiceImpl implements PdsService {
+	private PdsMapper mapper;//주입요청
+	
+	@Override
+	public int pdsCount() {
+		return mapper.pdsCount();
+	}
+
+	@Override
+	public List<PdsVO> pdsList() {
+		return mapper.pdsList();
+	}
+	
+	@Override
+	public void pdsWrite(PdsVO vo) {
+		mapper.pdsWrite(vo);
+	}
+	
+	@Override
+	public PdsVO pdsView(int idx) {
+		return mapper.pdsView(idx);
+	}
+	
+	@Override
+	public void pdsHits(int idx) {
+		return mapper.pdsHits(idx);
+	}
+	
+
+}
