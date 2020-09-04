@@ -1,5 +1,0 @@
-package com.jslhrd.service;
-
-public interface PdsService {
-
-}

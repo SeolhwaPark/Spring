@@ -6,10 +6,16 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value=""/>
+		<item key="selection" value="div"/>
 		<list key="findhistory">
-			<item value="80"/>
-			<item value="./"/>
+			<item value="div"/>
+			<item value="value"/>
+			<item value="ri"/>
+			<item value="ticks"/>
+			<item value="web"/>
+			<item value="ju"/>
+			<item value="org.apache.maven."/>
+			<item value="stui"/>
 		</list>
 		<list key="replacehistory">
 			<item value="/"/>

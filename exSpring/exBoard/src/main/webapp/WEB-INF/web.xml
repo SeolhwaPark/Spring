@@ -24,12 +24,16 @@
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
-		
-	<servlet-mapping>
+	
+		<servlet-mapping>
 		<servlet-name>appServlet</servlet-name>
-		<url-pattern>/</url-pattern>
+		<url-pattern>/*</url-pattern>
 	</servlet-mapping>
-
+	
+	<servlet-mapping>
+		<servlet-name>jsp</servlet-name>
+		<url-pattern>/WEB-INF/views/*</url-pattern>
+	</servlet-mapping>
 	<!-- 한글 인코딩 -->
 	<filter>
 		<filter-name>encoding</filter-name>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jslhrd.mapper.UserMapper">
+	<select id="userSelect" resultType="com.jslhrd.domain.UserVO">
+		select * from usertbl where userid=#{userid}
+		<trim prefix="AND">
+			passwd=#{passwd}
+		</trim>
+	</select>
+	
+	<select id="userIdSearch" resultType="String">
+	select passwd from usertbl where userid = #{userid}
+	</select>
+
+	<insert id="userInsert">
+		insert into usertbl(IDX, NAME, USERID, PASSWD,TEL, EMAIL)
+		values(tbl_member_seq_idx.nextval,#{name},#{userid},#{passwd},#{tel},#{email})
+	</insert>
+
+	<update id="userModify">
+		update usertbl set tel=#{tel} where userid=#{userid}
+		<trim prefix="AND">
+			passwd=#{passwd}
+		</trim>
+	</update>
+
+	<delete id="userDelete">
+		delete from usertbl where idx = #{idx}
+	</delete>
+
+</mapper>

@@ -2,5 +2,8 @@
 <typeInfoHistroy>
 <typeInfo handle="=exGuest/src\/main\/java&lt;com.jslhrd.service{GuestService.java[GuestService" modifiers="513" timestamp="1591343258907"/>
 <typeInfo handle="=exBoard/src\/main\/java&lt;com.jslhrd.service{BoardService.java[BoardService" modifiers="513" timestamp="1592218792663"/>
-<typeInfo handle="=exPds/src\/main\/java&lt;com.jslhrd.service{PdsService.java[PdsService" modifiers="513" timestamp="1593008891994"/>
+<typeInfo handle="=exPds/src\/main\/java&lt;com.jslhrd.service{PdsService.java[PdsService" modifiers="513" timestamp="1593238663902"/>
+<typeInfo handle="=exSample/src\/main\/java&lt;com.jslhrd.service{UserService.java[UserService" modifiers="513" timestamp="1593764409051"/>
+<typeInfo handle="=exSample/src\/main\/java&lt;com.jslhrd.mapper{UserMapper.java[UserMapper" modifiers="513" timestamp="1593763802926"/>
+<typeInfo handle="=seolhwaBlog/src\/main\/java&lt;com.blog.service{BlogService.java[BlogService" modifiers="513" timestamp="1594877070118"/>
 </typeInfoHistroy>

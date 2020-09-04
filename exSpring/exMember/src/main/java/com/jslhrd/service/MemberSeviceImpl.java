@@ -45,8 +45,6 @@ public class MemberSeviceImpl implements MemberService {
 		return mapper.memSelect(userid);
 	}
 	
-	
-	
 	@Override
 	public int memInsert(MemberVO vo) {
 		return mapper.memInsert(vo);

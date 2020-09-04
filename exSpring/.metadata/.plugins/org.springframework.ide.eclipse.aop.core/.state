@@ -4,9 +4,16 @@
 <aop-project name="exGuestPage"/>
 <aop-project name="exPds"/>
 <aop-project name="exGuest"/>
+<aop-project name="seolhwaBlog"/>
 <aop-project name="exGuestSearch"/>
 <aop-project name="Exam_04"/>
+<aop-project name="Exam_02"/>
 <aop-project name="copy"/>
-<aop-project name="exMember"/>
+<aop-project name="exSample"/>
 <aop-project name="exBoard"/>
+<aop-project name="TurkeyProject"/>
+<aop-project name="Exam_01"/>
+<aop-project name="Exam_03"/>
+<aop-project name="ExchangeRate"/>
+<aop-project name="exMember"/>
 </aop-reference-model>

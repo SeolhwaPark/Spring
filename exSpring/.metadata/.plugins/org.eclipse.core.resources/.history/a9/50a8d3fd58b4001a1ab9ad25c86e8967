@@ -1,5 +1,0 @@
-package com.jslhrd.mapper;
-
-public interface PdsMapper {
-
-}

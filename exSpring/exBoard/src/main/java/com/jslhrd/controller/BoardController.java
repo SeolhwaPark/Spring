@@ -1,5 +1,8 @@
 package com.jslhrd.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -226,5 +229,33 @@ public class BoardController {
 		model.addAttribute("page",page);
 		log.info("boarddeleteProJSP()....");
 	}
+	
+	
+
+    Map<String, Object> returnMap;
+    private static final Logger log2 = LoggerFactory.getLogger(BoardController.class);
+	
+
+    @GetMapping("helloWorld1")
+    public Object MapController1(){
+
+        returnMap = new HashMap<String,Object>();
+
+        returnMap.put("VALUE", "Hello World 1");
+        log2.info(returnMap.toString());
+        return returnMap;
+    }
+
+    @GetMapping("helloWorld2")
+    public Object MapController2(){
+
+        returnMap = new HashMap<String,Object>();
+
+        returnMap.put("VALUE", "Hello World 2");
+        log2.info(returnMap.toString());
+        
+        return returnMap;
+    }
+	
 	
 }

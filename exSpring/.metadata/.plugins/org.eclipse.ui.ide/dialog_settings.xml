@@ -25,6 +25,11 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\Users\lunas\eclipse-workspace\exSpring\TurkeyProject"/>
+			<item value="C:\Users\lunas\OneDrive\デスクトップ\걍신해야함\TurkeyProjectt"/>
+			<item value="C:\Users\lunas\OneDrive\デスクトップ\TurkeyProject"/>
+			<item value="C:\Users\lunas\exSpring"/>
+			<item value="C:\Users\lunas\eclipse-workspace\exSpring\TurkeyProject (2)"/>
 			<item value="C:\Users\lunas\eclipse-workspace\exSpring\exMember"/>
 			<item value="C:\Users\lunas\eclipse-workspace\exSpring\exGuestSearchPage"/>
 		</list>

@@ -6,7 +6,6 @@
 
 	<!-- 목록 -->
 	<select id="memList" resultType="com.jslhrd.domain.MemberVO">
-		
 		 select * from tbl_member order
 		by first_time desc
 	</select>
@@ -50,8 +49,7 @@
 	<select id="memSelect" resultType="com.jslhrd.domain.MemberVO">
 		select * from tbl_member where userid=#{userid}
 	</select>
-	
-	
+
 	<!-- 등록 -->
 	<insert id="memInsert">
 		insert into tbl_member(IDX, NAME, USERID, PASSWD, GUBUN, ZIPCODE, ADDR1, ADDR2, TEL, EMAIL, JOB, INTRO, FAVORITE)
